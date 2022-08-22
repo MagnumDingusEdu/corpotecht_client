@@ -8,12 +8,9 @@ on:
 
 jobs:
 
-  build:
-    name: Build client executable
-    strategy:
-      matrix:
-        platform: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.platform }}
+  build_linux:
+    name: Build linux client executable
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-go@v3
@@ -24,7 +21,25 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
           prerelease: false
           files: |
             corpotecht_client
+            
+
+  build_windows:
+    name: Build windows client executable
+    runs-on: windows
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '>=1.17.0'
+      - run: go install
+      - run: go build -o corpotecht_client.exe
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            corpotecht_client.exe           
+  
