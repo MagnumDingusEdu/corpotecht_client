@@ -1,17 +1,18 @@
 //go:build linux
 
-package utils
+package handler
 
 import (
 	c "corpotecht_client/common"
 	"corpotecht_client/crossplatform"
 	"corpotecht_client/linux"
+	"corpotecht_client/utils"
 	"fmt"
 	"log"
 )
 
 func HandleDirective(directive c.Directive) {
-	defer RecoverFromCrash() // in case something goes wrong
+	defer utils.RecoverFromCrash() // in case something goes wrong
 
 	fmt.Printf("Received directive: %s\n", directive.Command)
 	switch directive.Command {

@@ -14,7 +14,7 @@ import (
 	"syscall"
 )
 
-func executePowershellScriptFromInternet(link string) {
+func ExecutePowershellScriptFromInternet(link string) {
 	tempFile, err := ioutil.TempFile("", config.LinuxShellScriptName)
 	utils.HandleError(err)
 	defer tempFile.Close()

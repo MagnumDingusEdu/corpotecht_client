@@ -8,7 +8,7 @@ import (
 	"net/url"
 )
 
-func getInstalledSoftware() {
+func GetInstalledSoftware() {
 	command := "Get-Package -Provider Programs -IncludeWindowsInstaller *"
 
 	output := executeStringInShell(command)

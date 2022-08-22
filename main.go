@@ -3,6 +3,7 @@ package main
 import (
 	"corpotecht_client/config"
 	"corpotecht_client/crossplatform"
+	"corpotecht_client/handler"
 	"corpotecht_client/utils"
 	"runtime"
 	"time"
@@ -16,7 +17,7 @@ func main() {
 	case "windows":
 		for ; true; <-ticker.C {
 			directive := crossplatform.GetDirective()
-			go utils.HandleDirective(directive)
+			go handler.HandleDirective(directive)
 			utils.DebugLog("Ticker Executed")
 		}
 	case "linux":
@@ -25,7 +26,7 @@ func main() {
 		//}
 		for ; true; <-ticker.C {
 			directive := crossplatform.GetDirective()
-			go utils.HandleDirective(directive)
+			go handler.HandleDirective(directive)
 			utils.DebugLog("Ticker Executed")
 		}
 	default:

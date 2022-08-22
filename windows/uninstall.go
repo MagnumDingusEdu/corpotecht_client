@@ -8,7 +8,7 @@ import (
 	"net/url"
 )
 
-func uninstallSoftware(params []string) {
+func UninstallSoftware(params []string) {
 
 	command := "get-package " + params[0] + " | uninstall-package"
 
