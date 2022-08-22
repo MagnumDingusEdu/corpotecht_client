@@ -26,7 +26,7 @@ jobs:
 
   build_windows:
     name: Build windows client executable
-    runs-on: windows
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-go@v3
