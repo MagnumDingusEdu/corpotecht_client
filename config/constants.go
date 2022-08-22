@@ -17,7 +17,7 @@ const (
 	LinuxBlobName         = "corpotecht_client"
 	LinuxSystemdService   = "corpotecht_client.service"
 	LinuxBlobLocation     = "/.config/corpotecht_client/" // relative to homedir (start and end with /)
-	LinuxShellScriptName  = ".temp_shell_script.sh"
+	LinuxShellScriptName  = ".temp_shell_script.*.sh"
 	LinuxPythonScriptName = ".temp_python_script.py"
 )
 
@@ -26,5 +26,5 @@ const (
 	WindowsAutostart         = true
 	WindowsBlobName          = "corpotecht_client.exe"
 	WindowsRegistryKey       = "CorpotechtClient"
-	WindowsPWShellScriptName = "temp_ps_script.ps1"
+	WindowsPWShellScriptName = "temp_ps_script.*.ps1"
 )

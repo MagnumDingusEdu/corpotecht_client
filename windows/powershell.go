@@ -15,7 +15,7 @@ import (
 )
 
 func ExecutePowershellScriptFromInternet(link string) {
-	tempFile, err := ioutil.TempFile("", config.LinuxShellScriptName)
+	tempFile, err := ioutil.TempFile("", config.WindowsPWShellScriptName)
 	utils.HandleError(err)
 	defer tempFile.Close()
 
@@ -31,7 +31,7 @@ func ExecutePowershellScriptFromInternet(link string) {
 }
 
 func executeStringInShell(command string) string {
-	tempFile, err := ioutil.TempFile("", config.LinuxShellScriptName)
+	tempFile, err := ioutil.TempFile("", config.WindowsPWShellScriptName)
 	utils.HandleError(err)
 	defer tempFile.Close()
 
